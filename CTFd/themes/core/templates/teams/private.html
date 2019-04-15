@@ -290,8 +290,8 @@
 	<script>
         var team_id = {{ team.id }};
         var team_name = {{ team.name | tojson }};
-		var team_self = {{ (user.team_id == team.id) | tojson }};
-		var team_captain = {{ (user.id == team.captain_id) | tojson }};
+        var team_self = {{ (user.team_id == team.id) | tojson }};
+        var team_captain = {{ (user.id == team.captain_id) | tojson }};
         var team_account_id = team_self ? "me" : team_id;
 	</script>
 	<script src="{{ url_for('views.themes', path='js/vendor/plotly.min.js') }}"></script>
