@@ -53,14 +53,19 @@ def join():
         team = Teams.query.filter_by(name=teamname).first()
         user = get_current_user()
         if team and verify_password(passphrase, team.password):
-            user.team_id = team.id
-            db.session.commit()
-
-            if len(team.members) == 1:
-                team.captain_id = user.id
+            if len(team.members) < 5:
+                user.team_id = team.id
                 db.session.commit()
 
-            return redirect(url_for("challenges.listing"))
+                if len(team.members) == 1:
+                    team.captain_id = user.id
+                    db.session.commit()
+
+                return redirect(url_for("challenges.listing"))
+            else:
+                errors = ["Team size exceeded!"]
+                return render_template("teams/join_team.html", errors=errors)
+
         else:
             errors = ["That information is incorrect"]
             return render_template("teams/join_team.html", errors=errors)

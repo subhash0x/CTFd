@@ -74,9 +74,6 @@
 						<a class="nav-link" href="{{ url_for('views.notifications') }}">Notifications</a>
 					</li>
 					{% if get_config('account_visibility') != 'admins' %}
-						<li class="nav-item">
-							<a class="nav-link" href="{{ url_for('users.listing') }}">Users</a>
-						</li>
 						{% if get_config('user_mode') == 'teams' %}
 						<li class="nav-item">
 							<a class="nav-link" href="{{ url_for('teams.listing') }}">Teams</a>

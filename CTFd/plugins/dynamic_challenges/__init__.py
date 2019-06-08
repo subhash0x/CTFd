@@ -120,10 +120,7 @@ class DynamicValueChallenge(BaseChallenge):
 
         # It is important that this calculation takes into account floats.
         # Hence this file uses from __future__ import division
-        value = (
-            ((challenge.minimum - challenge.initial) / (challenge.decay ** 2))
-            * (solve_count ** 2)
-        ) + challenge.initial
+        value = (challenge.initial - challenge.minimum) * math.erf(-0.003 * solve_count) + challenge.initial
 
         value = math.ceil(value)
 
@@ -215,9 +212,7 @@ class DynamicValueChallenge(BaseChallenge):
 
         # It is important that this calculation takes into account floats.
         # Hence this file uses from __future__ import division
-        value = (
-            ((chal.minimum - chal.initial) / (chal.decay ** 2)) * (solve_count ** 2)
-        ) + chal.initial
+        value = (chal.initial - chal.minimum) * math.erf(-0.003 * solve_count) + chal.initial
 
         value = math.ceil(value)
 

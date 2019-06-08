@@ -38,6 +38,7 @@
 						<tr>
 							<td scope="col" width="10px"><b>Place</b></td>
 							<td scope="col"><b>Team</b></td>
+							<td scope="col"><b>Affiliation</b></td>
 							<td scope="col"><b>Score</b></td>
 						</tr>
 					</thead>
@@ -62,6 +63,7 @@
 									{% endif %}
 								</a>
 							</td>
+							<td>{{ standing.affiliation }}</td>
 							<td>{{ standing.score }}</td>
 						</tr>
 					{% endfor %}
