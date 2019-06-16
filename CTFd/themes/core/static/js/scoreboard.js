@@ -11,6 +11,7 @@ function updatescores() {
           teams[i].account_url,
           htmlentities(teams[i].name)
         ) +
+        "<td>{0}</td>".format(teams[i].affiliation) +
         "<td>{0}</td>".format(teams[i].score) +
         "</tr>";
       table.append(row);
